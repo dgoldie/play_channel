@@ -1,0 +1,5 @@
+<h2>Edit Toy</h2>
+
+<%= render "form.html", Map.put(assigns, :action, toy_path(@conn, :update, @toy)) %>
+
+<span><%= link "Back", to: toy_path(@conn, :index) %></span>
