@@ -2,6 +2,7 @@ import socket from "./socket"
 
 export var Toy = {
   show: function(ul, toy) {
+    console.log('toy show: ', toy)
     ul.empty();
     ul
       .append('<li><strong>Name:</strong> ' + toy.name + '</li>')

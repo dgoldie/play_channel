@@ -4,6 +4,8 @@ defmodule PlayChannelWeb.UserSocket do
   ## Channels
   # channel "room:*", PlayChannelWeb.RoomChannel
   channel "toys:*", PlayChannelWeb.ToyChannel
+  channel "mfa:*", PlayChannelWeb.MfaChannel
+
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
