@@ -21,4 +21,4 @@ import "phoenix_html"
 // import socket from "./socket"
 
 import toy from "./toy"
-import mfa from "./mfa"
+import DirectToys from "./direct_toys"

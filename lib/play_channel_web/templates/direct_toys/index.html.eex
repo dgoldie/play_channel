@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h2><%= gettext "Welcome to the %{name}!", name: "Direct Toys experiment" %></h2>
+  <p class="lead">Experiments using phoenix channels<br />dynamically calling functions on the server.</p>
+  <p class="lead">Module, Function, Arguments.</p>
+</div>
+
+<button class="mfa-join btn btn-primary btn-lg ">Join Direct Toys Channel</button>
+
+<div class="toys-list">
+  <button class="btn btn-primary">List all toys</button>
+  <table class="table"></table>
+</div>
+
+
+
+

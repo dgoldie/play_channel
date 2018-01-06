@@ -5,9 +5,41 @@ export var Toy = {
     console.log('toy show: ', toy)
     ul.empty();
     ul
+      .append('<li><strong>ID:</strong> ' + toy.id + '</li>')
       .append('<li><strong>Name:</strong> ' + toy.name + '</li>')
       .append('<li><strong>Color:</strong> ' + toy.color + '</li>')
       .append('<li><strong>Age:</strong> ' + toy.age + '</li>');
+  },
+
+  list: function(toysList, toys) {
+    console.log('toy list: ', toys)
+    var $table = $('table')
+
+    var columns = ['ID', 'NAME', 'COLOR', 'AGE']
+    this.addHeaders($table, columns)
+
+    $table.append('<tbody></tbody>');
+    var $tbody = $('table tbody')
+    for (var i = 0, len = toys.length; i < len; i++) {
+      this.addRow($tbody, toys[i])
+    }
+  },
+
+  addHeaders: function($table, columns) {
+    $table.append('<thead><tr></tr></thead>');
+    var $thead = $('table > thead > tr:first');
+    for (var i = 0, len = columns.length; i < len; i++) {
+        $thead.append('<th>'+columns[i]+'</th>');
+    }
+  },
+
+  addRow: function(tbody, toy) {
+    tbody.append($("<tr></tr>")
+      .append('<td>' + toy.id + '</td>')
+      .append('<td>' + toy.name + '</td>')
+      .append('<td>' + toy.color + '</td>')
+      .append('<td>' + toy.age + '</td>')
+    )
   }
 }
 

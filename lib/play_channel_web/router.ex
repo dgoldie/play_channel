@@ -18,7 +18,7 @@ defmodule PlayChannelWeb.Router do
 
     get "/", PageController, :index
     resources "/toys", ToyController
-    get "/mfa/:id", MfaController, :index
+    get "/direct_toys", DirectToysController, :index
   end
 
   # Other scopes may use custom stacks.
