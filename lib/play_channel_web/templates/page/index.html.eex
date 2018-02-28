@@ -1,40 +1,41 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+  <h2><%= gettext "Welcome to %{name}!", name: "Play Channel" %></h2>
+  <p class="lead">Experiments using phoenix channels</p>
+  <p class="lead">Module, Function, Arguments.</p>
 </div>
 
-<button class="mfa">MFA</button>
-<ul id="mfa-list">
-</ul>
+
+<div class="list-group">
+  <%= link to: "/toys", class: "list-group-item list-group-item-action flex-column align-items-start active"  do %>
+   <div class="d-flex w-100 justify-content-between">
+     <h3 class="mb-1">Toys Resource</h3>
+   </div>
+   <p class="mb-1">Default Phoenix CRUD resource manager using http requests, controllers, etc.</p>
+  <% end %>
+
+  <%= link to: "/direct_toys", class: "list-group-item list-group-item-action flex-column align-items-start"  do %>
+   <div class="d-flex w-100 justify-content-between">
+     <h3 class="mb-1">Direct Toys Experiment</h3>
+   </div>
+   <p class="mb-1">Uses a Phoenix Channel Live to request toys list with a direct MFA call</p>
+   <small>MFA: Module, Function, Arguments</small>
+  <% end %>
+
+  <%= link to: "/live_toys", class: "list-group-item list-group-item-action flex-column align-items-start"  do %>
+   <div class="d-flex w-100 justify-content-between">
+     <h3 class="mb-1">Live Update Experiment</h3>
+   </div>
+   <p class="mb-1">Uses a Phoenix Channel Live to maintain a resource by updating html</p>
+  <% end %>
+</div>
+
+
+
 
 <div class="row marketing">
   <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
   </div>
 
   <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
   </div>
 </div>

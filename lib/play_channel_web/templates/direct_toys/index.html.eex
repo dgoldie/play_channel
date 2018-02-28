@@ -4,7 +4,7 @@
   <p class="lead">Module, Function, Arguments.</p>
 </div>
 
-<button class="mfa-join btn btn-primary btn-lg ">Join Direct Toys Channel</button>
+<button class="live-join btn btn-primary btn-lg ">Join Direct Toys Channel</button>
 
 <div class="toys-list">
   <button class="btn btn-primary">List all toys</button>
