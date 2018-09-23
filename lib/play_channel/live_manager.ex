@@ -22,29 +22,29 @@ defmodule PlayChannel.LiveManager do
   # end
 
   def rest("list_toys") do
-    IO.puts "list_toys ****"
+    # IO.puts "list_toys ****"
     toys = Inventory.list_toys
-    IO.inspect toys
+    # IO.inspect toys
     html = Phoenix.View.render_to_string(
       PlayChannelWeb.ToyView,
       "list.html",
       [toys: toys]
     )
-    IO.inspect html
+    # IO.inspect html
     html
     # |> convert_structs_to_maps
   end
 
 
   def rest("show_toy", id) do
-    IO.puts "show_toy"
+    # IO.puts "show_toy"
     toy  = Inventory.get_toy!(id)
     html = Phoenix.View.render_to_string(
       PlayChannelWeb.ToyView,
       "show.html",
       [toy: toy]
     )
-    IO.inspect html
+    # IO.inspect html
     html
     # |> convert_structs_to_maps
   end
@@ -59,8 +59,8 @@ defmodule PlayChannel.LiveManager do
   # TODO: must be better way!
   #
   def convert_structs_to_maps(list) do
-    IO.puts "convert structs to maps"
-    IO.inspect list
+    # IO.puts "convert structs to maps"
+    # IO.inspect list
     list
     |> Enum.map(fn x ->
       IO.puts "enum each "

@@ -65,7 +65,7 @@ $(function() {
     .receive("error", resp => console.log("Unable to join Live topic") )
   channelLive.push('live:rest', {resource: "toy", op: "list"} )
     .receive("ok", (resp) => {
-      console.log("live:rest html = ", resp.data)
+      // console.log("live:rest html = ", resp.data)
       liveUpdate.html(resp.data)
     })
     .receive("error", (reasons) => console.log("create failed", reasons) )
@@ -83,19 +83,20 @@ $(function() {
   let redButton = $("#red-button")
 
   blueButton.click(() => {
-    console.log('blueButton click')
+    // console.log('blueButton click')
     channelPaint.push('live:paint_it', {color: 'blue', text: textInput.val()})
   })
 
   redButton.click(() => {
-    console.log('redButton click')
+    // console.log('redButton click')
     channelPaint.push('live:paint_it', {color: 'red', text: textInput.val()})
   })
 
   channelPaint.on('live_response', payload => {
-    console.log('live response')
+    console.log('live response', payload.html)
     liveDiv.empty()
     liveDiv.append(payload.html)
   })
+  console.log('bottom')
 
 });

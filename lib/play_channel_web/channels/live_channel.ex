@@ -4,7 +4,7 @@ defmodule PlayChannelWeb.LiveChannel do
   alias PlayChannel.Inventory
 
   def join("live:" <> topic, _payload, socket) do
-    IO.puts "JOIN live TOPIC = #{topic}"
+    # IO.puts "JOIN live TOPIC = #{topic}"
     # case PlayChannel.Mfa.execute(payload) do
     #   nil ->  {:error, %{reason: "channel: No such mfa"}}
     #   answer ->
@@ -30,7 +30,7 @@ defmodule PlayChannelWeb.LiveChannel do
   #NOTE: should we pass map?
   #
   def handle_in("live:rest", payload, socket) do
-    IO.puts "handle_in live rest !@!@@"
+    # IO.puts "handle_in live rest !@!@@"
 
     # we know were listing toys.
     #
@@ -40,25 +40,24 @@ defmodule PlayChannelWeb.LiveChannel do
   end
 
   def handle_in(event, payload, socket) do
-    IO.puts "last handle in"
-    IO.inspect event
-    IO.inspect payload
+    # IO.puts "last handle in"
+    # IO.inspect event
+    # IO.inspect payload
     mod  = payload["module"]
     func = payload["function"]
     args = payload["args"] || []
     case PlayChannel.LiveManager.direct(mod, func, args) do
       nil ->  {:error, %{reason: "channel: No such live channel"}}
       response ->
-        IO.puts "found response : "
-        IO.inspect response
+        # IO.puts "found response : "
+        # IO.inspect response
 
         {:reply, {:ok, %{data: response}}, socket}
     end
   end
 
-
   def handle_out(event, payload, socket) do
-    IO.puts "handle_out: "
+    # IO.puts "handle_out: "
     push socket, event, payload
   end
 

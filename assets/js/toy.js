@@ -54,15 +54,15 @@ $(function() {
     let channel = socket.channel(topic, {})
     channel.join()
       .receive("ok", toy => {
-        console.log("Joined topic", topic)
+        // console.log("Joined topic", topic)
         Toy.show(ul, toy);
       })
       .receive("error", resp => {
-        console.log("Unable to join topic", topic)
+        // console.log("Unable to join topic", topic)
       })
 
     channel.on("change", toy => {
-      console.log("Change:", toy);
+      // console.log("Change:", toy);
       Toy.show(ul, toy);
     })
   }

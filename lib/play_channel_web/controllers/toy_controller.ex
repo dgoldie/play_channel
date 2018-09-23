@@ -38,6 +38,7 @@ defmodule PlayChannelWeb.ToyController do
 
   def update(conn, %{"id" => id, "toy" => toy_params}) do
     toy = Inventory.get_toy!(id)
+    # IO.puts "update toy #{inspect toy}"
 
     case Inventory.update_toy(toy, toy_params) do
       {:ok, toy} ->

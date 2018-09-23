@@ -5,7 +5,7 @@ defmodule PlayChannelWeb.ToyChannel do
     case PlayChannel.Inventory.get_toy!(toy_id) do
       nil ->  {:error, %{reason: "channel: No such toy #{toy_id}"}}
       toy ->
-        IO.puts "found toy : #{IO.inspect toy.id}"
+        # IO.puts "found toy : #{IO.inspect toy.id}"
         {:ok, toy_to_map(toy), socket}
     end
   end
@@ -15,8 +15,12 @@ defmodule PlayChannelWeb.ToyChannel do
   end
 
   def broadcast_change(toy) do
+    IO.puts "broadcast_change #{inspect toy}"
     payload = toy_to_map(toy)
     PlayChannelWeb.Endpoint.broadcast("toys:#{toy.id}", "change", payload)
+    html = PlayChannel.LiveManager.rest("list_toys")
+    IO.puts "broadcast_change #{inspect toy}"
+    PlayChannelWeb.Endpoint.broadcast("live:paint_it", "live_response", %{html: html})
   end
 
   defp toy_to_map(toy) do
